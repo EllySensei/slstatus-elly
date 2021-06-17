@@ -23,7 +23,7 @@ static const char unknown_str[] = "n/a";
  * datetime            date and time                   format string (%F %T)
  * disk_free           free disk space in GB           mountpoint path (/)
  * disk_perc           disk usage in percent           mountpoint path (/)
- * disk_total          total disk space in GB          mountpoint path (/)
+ * disk_total          total disk space in GB          mountpoint path (/")
  * disk_used           used disk space in GB           mountpoint path (/)
  * entropy             available entropy               NULL
  * gid                 GID of current user             NULL
@@ -65,7 +65,9 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ ram_perc, "[RAM  %s%] | ", NULL },
-	{ cpu_perc, "[CPU  %s%] |", NULL },
-	{ datetime, " [ %s]",           "%A, %B %e, %Y, %I:%M %p" },
+	{ disk_perc, "  %s% | ",	"/" },
+	{ ram_perc, "  %s% | ",		NULL },
+	{ cpu_perc, "  %s% | ",		NULL },
+	{ datetime, "  %s ",          "%m/%d/%Y" },
+	{ datetime, "  %s",		"%H:%M:%S" }
 };
